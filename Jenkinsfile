@@ -42,13 +42,18 @@ properties(
                 )
         ])
 
-
 pipeline {
     agent any
     stages {
-        stage('validate the code') {
+        stage('build the code') {
             steps {
-                echo "code validate is successfull"
+                echo "Validation is Successful"
+		        build job: 'integrate',
+                        parameters: [
+                                booleanParam(name: 'MOUNT_MAVEN', value: true),
+                                string(name: 'BUILD_BRANCH', value: 'master'),
+                                string(name: 'USER_BUILD_TAG', value: 'N/A'),
+                        ]
             }
         }
     }
