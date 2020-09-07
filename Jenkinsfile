@@ -22,7 +22,6 @@ properties(
                                         name: 'MOUNT_MAVEN'
                                 ),
                                 string(
-                                        defaultValue: 'master',
                                         description: 'To build a branch',
                                         name: 'BUILD_BRANCH',
                                         trim: true
